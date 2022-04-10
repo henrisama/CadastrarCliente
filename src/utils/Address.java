@@ -1,6 +1,6 @@
 package src.utils;
 
-class Address{
+public class Address{
     private String Street;
     private int Number;
     private String District;

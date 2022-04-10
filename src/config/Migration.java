@@ -18,12 +18,21 @@ public class Migration {
         String query2 = "use RegisterClient;";
         String query3 = 
             "CREATE TABLE IF NOT EXISTS Client("
-        +   "id INT AUTO_INCREMENT,"
-        +   "name VARCHAR(50),"
-        +   "cpf VARCHAR(11),"
-        +   "email VARCHAR(50),"
-        +   "phone VARCHAR(20),"
-        +   "PRIMARY KEY (id));";
+        +   "CPF VARCHAR(11) NOT NULL,"
+        +   "name VARCHAR(50) NOT NULL,"
+        +   "email VARCHAR(50) UNIQUE NOT NULL,"
+        +   "phone VARCHAR(20) NOT NULL,"
+        +   "PRIMARY KEY (CPF));";
+
+        String query4 = 
+            "CREATE TABLE IF NOT EXISTS ClientAddress("
+        +   "street VARCHAR(30) NOT NULL,"
+        +   "num INT NOT NULL,"
+        +   "district VARCHAR(30) NOT NULL,"
+        +   "city VARCHAR(30) NOT NULL,"
+        +   "state VARCHAR(2) NOT NULL,"
+        +   "CPF_Client VARCHAR(11) NOT NULL,"
+        +   "FOREIGN KEY (CPF_Client) REFERENCES Client(CPF));";
 
         try{
             Class.forName(DRIVER);
@@ -34,6 +43,7 @@ public class Migration {
             stmt.executeUpdate(query1);
             stmt.executeUpdate(query2);
             stmt.executeUpdate(query3);
+            stmt.executeUpdate(query4);
             con.close();
 
         }catch(SQLException e){
