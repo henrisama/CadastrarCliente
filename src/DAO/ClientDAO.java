@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import src.config.ConnectionDB;
 import src.utils.*;
 
-public class ClienteDAO {
+public class ClientDAO {
     private Connection con;
 
-    public ClienteDAO(){
+    public ClientDAO(){
         this.con = ConnectionDB.Connect();
     }
 

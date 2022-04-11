@@ -1,9 +1,9 @@
 package src;
 
-import src.views.CadastrarCliente;
+import src.views.RegisterClient;
 
 public class Main {
     public static void main(String[] args) {
-        new CadastrarCliente().setVisible(true);
+        new RegisterClient().setVisible(true);
     }
 }
