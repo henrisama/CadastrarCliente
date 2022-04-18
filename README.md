@@ -34,6 +34,7 @@ make migration
 ```
 
 ### **Passo 4:**
+Responsável por compilar e executar a aplicação.
 ```text
 make run
 ```
