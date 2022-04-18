@@ -1,15 +1,23 @@
 DIR_ENV = 'src/env'
 FILE_ENV = 'src/env/Env.java'
 
+JC = javac
 
+# -------- run --------
+run: MainCompiler
+	java -cp .:lib/mysql-connector-java-8.0.28.jar src/Main && make clean
 
-setup: GenerateCode
+MainCompiler:
+	$(JC) src/Main.java
 
-GenerateCode: GenerateFile
-	@echo "package src.env; \npublic class Env { \n\tpublic static final String PasswordDB = \"mysqlpassword\"; \n}" > $(FILE_ENV)
+# -------- migration --------
+migration: MigrationExe clean
+	
+MigrationExe: MigrationCompiler
+	java -cp .:lib/mysql-connector-java-8.0.28.jar src/config/Migration
 
-GenerateFile: GenerateFolder
-	if test -f $(FILE_ENV); then echo Env.java file already exist; else touch $(FILE_ENV); fi
+MigrationCompiler:
+	$(JC) src/config/Migration.java
 
-GenerateFolder:
-	if test -d $(DIR_ENV); then echo env folder already exist; else mkdir $(DIR_ENV); fi
+clean:
+	$(RM) src/config/*.class src/DAO/*.class src/utils/*.class src/views/*.class src/*.class

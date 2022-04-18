@@ -4,12 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import src.env.Env;
-
 public class ConnectionDB {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String USER = "root";
-    private static final String PASSWORD = Env.PasswordDB;
+    private static final String PASSWORD = "suasenhaaqui";
     private static final String URL = "jdbc:mysql://localhost:3306/RegisterClient";
 
 

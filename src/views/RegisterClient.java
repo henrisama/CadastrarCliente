@@ -173,6 +173,6 @@ public class RegisterClient extends JFrame{
     }
 
     public void handleConfirmEvent(){
-
+        System.out.println("validate data and submit");
     }
 }

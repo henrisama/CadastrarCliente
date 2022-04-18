@@ -23,18 +23,17 @@ cd CadastrarCliente
 ```
 
 ### **Passo 2:**
-```text
-make setup
-```
+Setar a senha do banco de dados local nos arquivos ConnectionDB.java e Migration.java (variável "Password") dentro da pasta "config" em "src". Caso o banco de dados não tenha senha apenas setar a variável para string vazia.
+
+![](public/img/migration.gif)
 
 ### **Passo 3:**
-Ainda não implementado
+Responsável por criar o banco de dados (RegisterClient) e suas tabelas (Client e Address). Os Atributos de cada tabela podem ser encontrado no arquivo "src/config/Migration.java".
 ```text
 make migration
 ```
 
 ### **Passo 4:**
-Ainda não implementado
 ```text
 make run
 ```
