@@ -62,8 +62,8 @@ public class Client{
         return this.address;
     }
 
-    public void setAddress(String Street, int Number, String City, char[] UF) {
-        this.address = new Address(Street, Number, City, UF);
+    public void setAddress(String Street, int Number, String District, String City, String UF) {
+        this.address = new Address(Street, Number, District, City, UF);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Client{
             ", CPF='" + getCPF() + "'" +
             ", Phone='" + getPhone() + "'" +
             ", Email='" + getEmail() + "'" +
-            ", address='" + getAddress() + "'" +
+            ", address='" + getAddress().toString() + "'" +
             "}";
     }
 

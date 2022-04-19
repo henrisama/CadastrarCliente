@@ -5,15 +5,16 @@ public class Address{
     private int Number;
     private String District;
     private String City;
-    private char[] State = new char[2];
+    private String State;
 
 
     public Address() {
     }
 
-    public Address(String Street, int Number, String City, char[] State) {
+    public Address(String Street, int Number, String District, String City, String State) {
         this.Street = Street;
         this.Number = Number;
+        this.District = District;
         this.City = City;
         this.State = State;
     }
@@ -50,11 +51,11 @@ public class Address{
         this.City = City;
     }
 
-    public char[] getState() {
+    public String getState() {
         return this.State;
     }
 
-    public void setState(char[] State) {
+    public void setState(String State) {
         this.State = State;
     }
 
@@ -63,8 +64,9 @@ public class Address{
         return "{" +
             " Street='" + getStreet() + "'" +
             ", Number='" + getNumber() + "'" +
+            ", District='" + getDistrict() + "'" +
             ", City='" + getCity() + "'" +
-            ", State='" + getState().toString() + "'" +
+            ", State='" + getState() + "'" +
             "}";
     }
     

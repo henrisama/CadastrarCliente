@@ -14,12 +14,12 @@ public class ClientDAO {
         this.con = ConnectionDB.Connect();
     }
 
-    public void CadastrarCliente(Client client){
+    public int CadastrarCliente(Client client){
         final String query1 = 
         "INSERT INTO Client(name,CPF,email,phone) VALUES(?,?,?,?)";
 
         final String query2 = 
-        "INSERT INTO Client(street,num,district,city,state,CPF_Client) VALUES(?,?,?,?,?,?)";
+        "INSERT INTO ClientAddress(street,num,district,city,state,CPF_Client) VALUES(?,?,?,?,?,?)";
 
         try{
             PreparedStatement stmt1 = this.con.prepareStatement(query1);
@@ -36,13 +36,15 @@ public class ClientDAO {
             stmt2.setString(2, Integer.toString(client.getAddress().getNumber()));
             stmt2.setString(3, client.getAddress().getDistrict());
             stmt2.setString(4, client.getAddress().getCity());
-            stmt2.setString(5, client.getAddress().getState().toString());
+            stmt2.setString(5, client.getAddress().getState());
             stmt2.setString(6, client.getCPF());
             stmt2.execute();
             stmt2.close();
+            return 1;
 
         }catch(SQLException e){
             System.out.println(e);
+            return e.getErrorCode();
         }
     }
 }
