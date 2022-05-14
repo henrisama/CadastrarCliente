@@ -1,9 +1,13 @@
-<h1 align="center"> Cadastrar Cliente 🖊️ </h1> 
+# Cadastrar Cliente 🖊️ 
 
-<h4 align="center"> 
+<h3> 
     🚧 Projeto em construção 🚧
-</h4>
+</h3>
 <br>
+
+![License: MIT](https://img.shields.io/github/license/henrisama/CadastrarCliente?color=green&label=License)
+![Size](https://img.shields.io/github/repo-size/henrisama/CadastrarCliente?label=Size)
+![Repo Stars](https://img.shields.io/github/stars/henrisama/CadastrarCliente?style=social)
 
 ## **Descrição**:
 Projeto em desenvolvimento para diciplina de Análise e Programa Orientados a Objetos. É um software para cadastrar um cliente em um banco de dados relacional. 
